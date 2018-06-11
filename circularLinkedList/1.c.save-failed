@@ -7,20 +7,24 @@ struct node{
 int main()
 {
     struct node* last = NULL;
-    addToBegin(&last,6);
+    push(&last,6);
     show(last);
-    return 0;
+}
+void push(struct node** last,int num)
+{
+  if(*last==NULL)
+     addToBegin(&last,num);
+
 }
 void addToBegin(struct node** last,int num)
 {
+    struct node* temp= *last;
     if(*last!=NULL)
         return;
-        struct node* temp = (struct node*)malloc(sizeof(struct node));
     temp->data = num;
-     *last = temp;
-     temp->next = *last;
+    temp->next = *last;
 }
-void show(struct node* last)
+void last(struct node* last)
 {
     struct node* p =NULL;
     if(last==NULL)
