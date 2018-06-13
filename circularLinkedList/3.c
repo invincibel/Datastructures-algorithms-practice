@@ -15,15 +15,6 @@ struct node* push(struct node* last,int num)
   last->next = temp;
   return last;
 }
-void addToBegin(struct node* last, int num)
-{
-  if(last!=NULL)
-    return;
-  struct node* temp = (struct node*)malloc(sizeof(struct node));
-  temp->data = num;
-  last = temp;
-  temp->next = last;
-}
 int main()
 {
     struct node* last = NULL;
@@ -41,4 +32,13 @@ void show(struct node* last)
     printf(" %d ",p->data);
     p = p->next;
   }while(p != last->next);
+}
+void addToBegin(struct node* last, int num)
+{
+  if(last!=NULL)
+    return;
+  struct node* temp = (struct node*)malloc(sizeof(struct node));
+  temp->data = num;
+  last = temp;
+  temp->next = last;
 }
